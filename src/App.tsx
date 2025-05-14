@@ -1,9 +1,12 @@
+import './styles/theme.css';
+import './styles/global.css';
+
 function App() {
   console.log('oi');
 
   return (
     <>
-      <h1>Olá, Mundo! (Do App)</h1>
+      <h1>Olá, Mundo!</h1>
     </>
   );
 }
