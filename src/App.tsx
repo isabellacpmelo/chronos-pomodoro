@@ -4,8 +4,6 @@ import './styles/theme.css';
 import './styles/global.css';
 
 function App() {
-  console.log('oi');
-
   return (
     <>
       <Heading attr={123} attr2='String'>
