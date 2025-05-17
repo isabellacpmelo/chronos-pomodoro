@@ -1,3 +1,5 @@
+import { Heading } from './assets/components/Heading';
+
 import './styles/theme.css';
 import './styles/global.css';
 
@@ -6,7 +8,13 @@ function App() {
 
   return (
     <>
-      <h1>Olá, Mundo!</h1>
+      <Heading />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus illum
+        ipsa, nam, laudantium excepturi exercitationem ipsam pariatur ad,
+        repudiandae voluptatibus quisquam. Veritatis, molestiae ad repudiandae
+        est a beatae tempore illum!
+      </p>
     </>
   );
 }
