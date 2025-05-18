@@ -3,6 +3,7 @@ import './styles/global.css';
 
 import { Container } from './assets/components/Container';
 import { Heading } from './assets/components/Heading';
+import { Logo } from './assets/components/Logo';
 // import { TimerIcon } from 'lucide-react';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         </button>
       </Heading> */}
       <Container>
-        <Heading>LOGO</Heading>
+        <Logo />
       </Container>
       <Container>
         <Heading>MENU</Heading>
