@@ -4,6 +4,7 @@ import './styles/global.css';
 import { Container } from './assets/components/Container';
 import { Logo } from './assets/components/Logo';
 import { Menu } from './assets/components/Menu';
+import { CountDown } from './assets/components/CountDown';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       </Container>
       <Container>
         <Menu />
+      </Container>
+      <Container>
+        <CountDown />
       </Container>
     </>
   );
