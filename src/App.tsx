@@ -8,12 +8,28 @@ import { CountDown } from './assets/components/CountDown';
 import { DefaultInput } from './assets/components/DefaultInput';
 import { Cycles } from './assets/components/Cycles';
 import { DefaultButton } from './assets/components/DefaultButton';
-import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
+// import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
+import { PlayCircleIcon } from 'lucide-react';
 import { Footer } from './assets/components/Footer';
+import { Heading } from './assets/components/Heading';
 
 function App() {
+  let numero = 0;
+  function handleClick() {
+    const span = document.getElementById('numero');
+
+    if (!span) return;
+    numero += 1;
+    span.innerText = numero.toString();
+    console.log(numero);
+  }
+
   return (
     <>
+      <Heading>
+        <span id='numero'>Numero: {numero}</span>
+      </Heading>
+      <button onClick={handleClick}>Aumenta</button>
       <Container>
         <Logo />
       </Container>
@@ -29,7 +45,7 @@ function App() {
             <DefaultInput
               id='meuInput'
               type='text'
-              labelText='Minha label'
+              labelText={numero.toString()}
               placeholder='Digite algo'
             />
           </div>
