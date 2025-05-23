@@ -12,16 +12,18 @@ import { DefaultButton } from './assets/components/DefaultButton';
 import { PlayCircleIcon } from 'lucide-react';
 import { Footer } from './assets/components/Footer';
 import { Heading } from './assets/components/Heading';
+import { useState } from 'react';
 
 function App() {
-  let numero = 0;
-  function handleClick() {
-    const span = document.getElementById('numero');
+  // const [numero, setNumero] = useState(() => {
+  //   console.log('Lazy Initialization');
+  //   return 0;
+  // });
 
-    if (!span) return;
-    numero += 1;
-    span.innerText = numero.toString();
-    console.log(numero);
+  const [numero, setNumero] = useState(0);
+
+  function handleClick() {
+    setNumero(num => num + 1);
   }
 
   return (
