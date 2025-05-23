@@ -11,27 +11,10 @@ import { DefaultButton } from './assets/components/DefaultButton';
 // import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { PlayCircleIcon } from 'lucide-react';
 import { Footer } from './assets/components/Footer';
-import { Heading } from './assets/components/Heading';
-import { useState } from 'react';
 
 function App() {
-  // const [numero, setNumero] = useState(() => {
-  //   console.log('Lazy Initialization');
-  //   return 0;
-  // });
-
-  const [numero, setNumero] = useState(0);
-
-  function handleClick() {
-    setNumero(num => num + 1);
-  }
-
   return (
     <>
-      <Heading>
-        <span id='numero'>Numero: {numero}</span>
-      </Heading>
-      <button onClick={handleClick}>Aumenta</button>
       <Container>
         <Logo />
       </Container>
@@ -47,7 +30,7 @@ function App() {
             <DefaultInput
               id='meuInput'
               type='text'
-              labelText={numero.toString()}
+              labelText='task'
               placeholder='Digite algo'
             />
           </div>
