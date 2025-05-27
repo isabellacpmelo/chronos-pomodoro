@@ -1,7 +1,7 @@
-import { Container } from '../../assets/components/Container';
-import { CountDown } from '../../assets/components/CountDown';
-import { MainForm } from '../../assets/components/MainForm';
-import { MainTemplate } from '../../assets/templates/MainTemplate';
+import { Container } from '../../components/Container';
+import { CountDown } from '../../components/CountDown';
+import { MainForm } from '../../components/MainForm';
+import { MainTemplate } from '../../templates/MainTemplate';
 
 export function Home() {
   return (
