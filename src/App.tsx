@@ -20,9 +20,7 @@ const inicialState: TaskStateModel = {
 function App() {
   const [state, setState] = useState(inicialState);
 
-  console.log('App', state);
-
-  return <Home state={state} setState={setState} />;
+  return <Home />;
 }
 
 export { App };
