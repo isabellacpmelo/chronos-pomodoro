@@ -8,7 +8,7 @@ import type { TaskStateModel } from './models/TaskStateModel';
 const inicialState: TaskStateModel = {
   tasks: [],
   secondsRemaining: 0,
-  formattedSecondsRemaining: '00:00',
+  formattedSecondsRemaining: '04:00',
   activeTask: null,
   currentCycle: 0,
   config: {
