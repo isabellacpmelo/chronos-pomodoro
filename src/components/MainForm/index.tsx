@@ -2,7 +2,7 @@ import { DefaultInput } from '../DefaultInput';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { PlayCircleIcon } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 
@@ -49,6 +49,8 @@ export function MainForm() {
         },
       };
     });
+
+    taskNameInput.current.value = '';
   }
 
   return (
