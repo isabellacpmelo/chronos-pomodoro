@@ -7,6 +7,7 @@ import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils.js/getNextCycle';
 import { getNextCycleType } from '../../utils.js/getNextCycleType';
+import { formatSecondsToMinutes } from '../../utils.js/formatSecondsToMinutes';
 
 // import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 
@@ -48,7 +49,7 @@ export function MainForm() {
         activeTask: newTask,
         currentCycle: nextCycle, // Conferir
         secondsRemaining, // Conferir
-        formattedSecondsRemaining: '00:00', // Conferir
+        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining), // Conferir
         tasks: [...prevState.tasks, newTask],
       };
     });
