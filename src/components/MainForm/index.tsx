@@ -65,8 +65,6 @@ export function MainForm() {
           type='text'
           labelText='task'
           placeholder='Digite algo'
-          // value={taskName}
-          // onChange={e => setTaskName(e.target.value)}
           ref={taskNameInput}
         />
       </div>
@@ -75,9 +73,11 @@ export function MainForm() {
         <p>Próximo intervalo é de 25 min</p>
       </div>
 
-      <div className='formRow'>
-        <Cycles />
-      </div>
+      {state.currentCycle > 0 && (
+        <div className='formRow'>
+          <Cycles />
+        </div>
+      )}
 
       <div className='formRow'>
         <DefaultButton icon={<PlayCircleIcon />} />
