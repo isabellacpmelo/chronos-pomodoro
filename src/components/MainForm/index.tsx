@@ -9,8 +9,6 @@ import { getNextCycle } from '../../utils.js/getNextCycle';
 import { getNextCycleType } from '../../utils.js/getNextCycleType';
 import { formatSecondsToMinutes } from '../../utils.js/formatSecondsToMinutes';
 
-// import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
-
 export function MainForm() {
   const { state, setState } = useTaskContext();
   const taskNameInput = useRef<HTMLInputElement>(null);
@@ -47,14 +45,25 @@ export function MainForm() {
         ...prevState,
         config: { ...prevState.config },
         activeTask: newTask,
-        currentCycle: nextCycle, // Conferir
-        secondsRemaining, // Conferir
-        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining), // Conferir
+        currentCycle: nextCycle,
+        secondsRemaining,
+        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining),
         tasks: [...prevState.tasks, newTask],
       };
     });
 
     // taskNameInput.current.value = '';
+  }
+
+  function handleInterruptTask() {
+    setState(prevState => {
+      return {
+        ...prevState,
+        activeTask: null,
+        secondsRemaining: 0,
+        formattedSecondsRemaining: '00:00',
+      };
+    });
   }
 
   return (
@@ -81,20 +90,23 @@ export function MainForm() {
       )}
 
       <div className='formRow'>
-        {!state.activeTask ? (
+        {!state.activeTask && (
           <DefaultButton
             arial-label='Iniciar nova tarefa'
             title='Iniciar nova tarefa'
             type='submit'
             icon={<PlayCircleIcon />}
           />
-        ) : (
+        )}
+
+        {!!state.activeTask && (
           <DefaultButton
             arial-label='Interromper tarefa atual'
             title='Interromper tarefa atual'
             type='button'
             icon={<StopCircleIcon />}
             color='red'
+            onClick={handleInterruptTask}
           />
         )}
       </div>
