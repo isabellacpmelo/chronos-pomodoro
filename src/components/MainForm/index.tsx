@@ -51,8 +51,6 @@ export function MainForm() {
         tasks: [...prevState.tasks, newTask],
       };
     });
-
-    // taskNameInput.current.value = '';
   }
 
   function handleInterruptTask() {
