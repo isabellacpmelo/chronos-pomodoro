@@ -1,12 +1,12 @@
-import { DefaultInput } from '../DefaultInput';
+import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
-import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
+import { DefaultInput } from '../DefaultInput';
 import { useRef } from 'react';
-import type { TaskModel } from '../../models/TaskModel';
+import { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
-import { getNextCycle } from '../../utils.js/getNextCycle';
-import { getNextCycleType } from '../../utils.js/getNextCycleType';
+import { getNextCycle } from '../../utils/getNextCycle';
+import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { Tips } from '../Tips';
 
@@ -40,6 +40,19 @@ export function MainForm() {
     };
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
+
+    const worker = new Worker(
+      new URL('../../workers/timerWorker.js', import.meta.url),
+    );
+
+    worker.postMessage('FAVOR'); // Sim, posso fazer um favor
+    worker.postMessage('FALA_OI'); // OK: OI!
+    worker.postMessage('BLALBLA'); // Não entendi!
+    worker.postMessage('FECHAR'); // Tá bom, vou fechar
+
+    worker.onmessage = function (event) {
+      console.log('PRINCIPAL recebeu:', event.data);
+    };
   }
 
   function handleInterruptTask() {
@@ -72,21 +85,23 @@ export function MainForm() {
       <div className='formRow'>
         {!state.activeTask && (
           <DefaultButton
-            arial-label='Iniciar nova tarefa'
+            aria-label='Iniciar nova tarefa'
             title='Iniciar nova tarefa'
             type='submit'
             icon={<PlayCircleIcon />}
+            key='botao_submit'
           />
         )}
 
         {!!state.activeTask && (
           <DefaultButton
-            arial-label='Interromper tarefa atual'
+            aria-label='Interromper tarefa atual'
             title='Interromper tarefa atual'
             type='button'
-            icon={<StopCircleIcon />}
             color='red'
+            icon={<StopCircleIcon />}
             onClick={handleInterruptTask}
+            key='botao_button'
           />
         )}
       </div>
