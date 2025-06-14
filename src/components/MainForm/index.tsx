@@ -9,7 +9,6 @@ import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { Tips } from '../Tips';
-import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -41,14 +40,6 @@ export function MainForm() {
     };
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
-
-    const worker = TimerWorkerManager.getInstance();
-
-    worker.postMessage('FAVOR'); // Sim, posso fazer um favor
-
-    worker.onmessage(event => {
-      console.log('Principal recebeu:', event.data);
-    });
   }
 
   function handleInterruptTask() {
