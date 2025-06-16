@@ -21,7 +21,6 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
     if (countDownSeconds <= 0) {
       if (playBeepRef.current) {
-        console.log('tocando audio...');
         playBeepRef.current();
         playBeepRef.current = null;
       }
@@ -39,7 +38,6 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
   useEffect(() => {
     if (!state.activeTask) {
-      console.log('Worker terminado por falta de activeTask');
       worker.terminate();
     }
 
@@ -47,12 +45,9 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
   }, [worker, state]);
 
   useEffect(() => {
-    console.log('ActiveTask Mudou');
     if (state.activeTask && playBeepRef.current === null) {
-      console.log('Carregando áudio');
       playBeepRef.current = loadBeep();
     } else {
-      console.log('tocando audio...');
       playBeepRef.current = null;
     }
   }, [state.activeTask]);
