@@ -2,7 +2,7 @@
 
 <div align="left">
   <a href="chronos-pomodoro-lac.vercel.app">
-    <img height="180em" alt="Star Wars Catalogue" src="./src/assets/chronos-print.png" />
+    <img height="180em" alt="Chronos" src="./src/assets/chronos-print.png" />
   </a>
 </div>
 </br>
