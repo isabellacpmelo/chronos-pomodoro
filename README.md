@@ -1,12 +1,12 @@
 # Chronos Pomodoro
 
 <div align="left">
-  <a href="chronos-pomodoro-lac.vercel.app">
+  <a href="https://chronos-pomodoro-lac.vercel.app/">
     <img height="180em" alt="Chronos" src="./src/assets/chronos-print.png" />
   </a>
 </div>
 </br>
-<a href="chronos-pomodoro-lac.vercel.app">
+<a href="https://chronos-pomodoro-lac.vercel.app/">
   Click here to access the website
 </a>
 
